@@ -16,10 +16,9 @@ const ruleTester = new TSESLint.RuleTester({
 
 const Test = suite("Test suite for \`{{name}}\`.");
 
-// Workaround for https://github.com/eslint/eslint/pull/15507
-RuleTester.it = (text, callback) => {
-  Test(text, callback)
-}
+TSESLint.RuleTester.it = (text, callback) => {
+  Test(text, callback);
+};
 
 ruleTester.run("{{name}}", rule, {
   valid: [
