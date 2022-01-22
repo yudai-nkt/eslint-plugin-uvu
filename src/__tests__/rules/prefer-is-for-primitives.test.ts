@@ -1,5 +1,5 @@
 import { resolve } from "node:path";
-import { TSESLint } from "@typescript-eslint/experimental-utils";
+import { TSESLint } from "@typescript-eslint/utils";
 import { dedent } from "ts-dedent";
 import { suite } from "uvu";
 import rule from "../../rules/prefer-is-for-primitives";

@@ -1,7 +1,4 @@
-import {
-  ESLintUtils,
-  type TSESTree,
-} from "@typescript-eslint/experimental-utils";
+import { ESLintUtils, type TSESTree } from "@typescript-eslint/utils";
 
 /**
  * Rule creator for eslint-plugin-uvu.

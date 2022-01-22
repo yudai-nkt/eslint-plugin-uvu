@@ -1,4 +1,4 @@
-import type { TSESLint } from "@typescript-eslint/experimental-utils";
+import type { TSESLint } from "@typescript-eslint/utils";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { compile } from "tempura";

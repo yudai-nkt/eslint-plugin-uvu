@@ -1,6 +1,6 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import type { TSESLint } from "@typescript-eslint/experimental-utils";
+import type { TSESLint } from "@typescript-eslint/utils";
 
 // Copied from https://github.com/testing-library/eslint-plugin-testing-library/blob/v5.0.0/lib/utils/file-import.ts
 // MIT License (c) 2019 Mario Beltrán Alarcón
