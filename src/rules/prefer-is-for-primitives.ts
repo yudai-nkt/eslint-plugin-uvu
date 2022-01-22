@@ -1,4 +1,4 @@
-import { TSESTree } from "@typescript-eslint/experimental-utils";
+import type { TSESTree } from "@typescript-eslint/experimental-utils";
 import { createRule, getImportStatus } from "../utils";
 
 /**
@@ -32,12 +32,9 @@ export default createRule({
     if (uvuAssertEqual === undefined) {
       listner = {};
     } else {
-      let selector;
-      if (uvuAssertEqual.isNamed) {
-        selector = `CallExpression[arguments.1.type=Literal][callee.name=${uvuAssertEqual.alias}]`;
-      } else {
-        selector = `CallExpression[arguments.1.type=Literal][callee.object.name=${uvuAssertEqual.namespace}][callee.property.name=equal]`;
-      }
+      const selector = uvuAssertEqual.isNamed
+        ? `CallExpression[arguments.1.type=Literal][callee.name=${uvuAssertEqual.alias}]`
+        : `CallExpression[arguments.1.type=Literal][callee.object.name=${uvuAssertEqual.namespace}][callee.property.name=equal]`;
       listner = {
         [selector]: (node: TSESTree.CallExpression) => {
           context.report({ messageId: "preferIsForPrimitives", node });

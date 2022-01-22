@@ -58,7 +58,7 @@ const isImportSpecifier = (
  * @returns Whether and how the API is imported.
  */
 export const getImportStatus = (
-  { module, member }: UvuAPI,
+  { module, member }: Readonly<UvuAPI>,
   code: TSESTree.ProgramStatement[]
 ): ImportStatus => {
   const uvuImport = code.find(
@@ -89,17 +89,21 @@ export const getImportStatus = (
   }
 
   // import {bar, baz as qux} from ${api.module}
+  /* eslint-disable-next-line unicorn/consistent-destructuring --
+   * this is a false positive (cf. https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1109)
+   */
   const importedMember = uvuImport.specifiers.find(
     (specifier) =>
+      /* eslint-disable-next-line unicorn/consistent-destructuring --
+       * this is a false positive (cf. https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1109)
+       */
       isImportSpecifier(specifier) && specifier.imported.name === member
   );
-  if (importedMember === undefined) {
-    // ${api.member} is not imported.
-    return;
-  } else {
-    return {
-      isNamed: true,
-      alias: importedMember.local.name,
-    };
-  }
+  // importedMember being undefined means that ${api.member} is not imported.
+  return importedMember === undefined
+    ? undefined
+    : {
+        isNamed: true,
+        alias: importedMember.local.name,
+      };
 };
