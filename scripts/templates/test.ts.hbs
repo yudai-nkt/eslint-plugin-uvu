@@ -1,0 +1,36 @@
+{{#expect name}}
+import { resolve } from 'node:path';
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { RuleTester } from 'eslint';
+import { dedent } from 'ts-dedent'
+import { suite } from "uvu";
+import rule from "../../rules/{{name}}"
+
+const ruleTester = new TSESLint.RuleTester({
+  parser: resolve("./node_modules/espree"),
+  parserOptions: {
+    sourceType: "module",
+    ecmaVersion: 2015
+  }
+})
+
+const Test = suite("Test suite for \`{{name}}\`.");
+
+// Workaround for https://github.com/eslint/eslint/pull/15507
+RuleTester.it = (text, callback) => {
+  Test(text, callback)
+}
+
+ruleTester.run("{{name}}", rule, {
+  valid: [
+    dedent\`\`,
+  ],
+  invalid: [
+    {
+      code: dedent\`\`,
+      errors: []
+    },
+  ]
+})
+
+Test.run()

@@ -1,0 +1,37 @@
+{{#expect name, description, hasOption }}
+# uvu/{{name}}
+
+{{description}}
+
+## Rationale
+
+## Examples
+
+Examples of __incorrect__ code for this rule:
+
+\`\`\`javascript
+\`\`\`
+
+Examples of __correct__ code for this rule:
+
+\`\`\`javascript
+\`\`\`
+
+{{#if hasOption}}
+## Option
+
+This rule has an option outlined below:
+<!-- add marker comment -->
+
+
+\`\`\`typescript
+type Option = {}
+
+const defaultConfig: Option = {}
+\`\`\`
+{{/if}}
+
+## Resources
+
+- [Rule source](../../src/rules/{{name}}.ts)
+- [Test source](../../src/__tests__/rules/{{name}}.test.ts)

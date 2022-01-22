@@ -1,0 +1,20 @@
+{{#expect name, description, type}}
+import { createRule } from "../utils";
+
+/**
+ * Rule object for {{name}}.
+ */
+export default createRule({
+  name: "{{name}}",
+  meta: {
+    docs: {
+      description: "{{description}}",
+      recommended: false,
+    },
+    messages: {},
+    type: "{{type}}",
+    schema: [],
+  },
+  defaultOptions: [],
+  create: (context) => ({}),
+});

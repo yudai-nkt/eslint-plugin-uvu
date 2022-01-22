@@ -1,0 +1,45 @@
+{
+  "name": "eslint-plugin-uvu",
+  "version": "0.1.0",
+  "description": "ESLint plugin for uvu",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "docgen:rules-table": "tsm scripts/update-rules-table.ts",
+    "new-rule": "tsm scripts/new-rule.ts",
+    "test": "tsm node_modules/uvu/bin.js src/__tests__/ '.test.ts$'",
+    "prebuild": "node --eval 'fs.rmSync(\"dist\", { force: true, recursive: true })'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yudai-nkt/eslint-plugin-uvu.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "uvu"
+  ],
+  "author": "Yudai Nakata <yudai.nkt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yudai-nkt/eslint-plugin-uvu/issues"
+  },
+  "homepage": "https://github.com/yudai-nkt/eslint-plugin-uvu#readme",
+  "dependencies": {
+    "@typescript-eslint/experimental-utils": "^5.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/prompts": "^2.0.14",
+    "prettier": "^2.5.1",
+    "prompts": "^2.4.2",
+    "tempura": "^0.4.0",
+    "ts-dedent": "^2.2.0",
+    "tsm": "^2.2.1",
+    "typescript": "^4.5.4",
+    "uvu": "^0.5.3"
+  }
+}

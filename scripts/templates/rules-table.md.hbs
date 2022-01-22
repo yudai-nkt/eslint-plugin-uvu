@@ -1,0 +1,6 @@
+{{#expect rules}}
+| Rule ID | Description | Recommended | Fixable |
+| ------- | ----------- | :---------: | :-----: |
+{{#each rules as rule}}
+| [uvu/{{rule.name}}](./docs/rules/{{rule.name}}.md) | {{rule.description}} | {{#if rule.recommended}} ✨ {{/if}} | {{#if rule.fixable}} 🔧 {{/if}} |
+{{/each}}
