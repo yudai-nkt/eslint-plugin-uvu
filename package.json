@@ -8,11 +8,14 @@
   ],
   "scripts": {
     "build": "tsc",
+    "bump": "standard-version",
+    "bump:dryrun": "standard-version --dry-run",
     "docgen:rules-table": "tsm scripts/update-rules-table.ts",
     "new-rule": "tsm scripts/new-rule.ts",
     "test": "tsm node_modules/uvu/bin.js src/__tests__/ '.test.ts$'",
     "prebuild": "node --eval 'fs.rmSync(\"dist\", { force: true, recursive: true })'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postpublish": "git push --follow-tags origin main"
   },
   "repository": {
     "type": "git",
@@ -40,6 +43,7 @@
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
     "prompts": "^2.4.2",
+    "standard-version": "^9.3.2",
     "tempura": "^0.4.0",
     "ts-dedent": "^2.2.0",
     "tsm": "^2.2.1",
