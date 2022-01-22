@@ -45,6 +45,7 @@
     "@yudai-nkt/eslint-config": "^0.3.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-plugin": "^4.1.0",
     "eslint-plugin-unicorn": "^39.0.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
