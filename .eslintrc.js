@@ -19,5 +19,9 @@ module.exports = {
       files: ["src/__tests__/rules/*.ts"],
       extends: ["plugin:eslint-plugin/tests-recommended"],
     },
+    {
+      files: ["scripts/*.ts"],
+      parserOptions: { project: "./scripts/tsconfig.json" },
+    },
   ],
 };

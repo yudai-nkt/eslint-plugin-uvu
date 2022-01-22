@@ -1,4 +1,4 @@
-import { readFile, readFileSync, writeFile, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import prompts, { type PromptObject } from "prompts";
 import { compile } from "tempura";
 
@@ -7,8 +7,8 @@ const questions: PromptObject[] = [
     type: "text",
     name: "name",
     message: "Name of the new rule.",
-    validate: (name) =>
-      name.match(/[a-z][a-z-]*[a-z]/)
+    validate: (name: string) =>
+      /[a-z][a-z-]*[a-z]/.test(name)
         ? true
         : "Rule name should contain lowercase latin characters and hyphens only, and should not start/end with a hyphen.",
   },
@@ -16,8 +16,8 @@ const questions: PromptObject[] = [
     type: "text",
     name: "description",
     message: "Concise description of the rule.",
-    validate: (description) =>
-      description.match(/[A-Z].+\./)
+    validate: (description: string) =>
+      /[A-Z].+\./.test(description)
         ? true
         : "Description should start with an uppercase and end with a period.",
   },
@@ -75,6 +75,10 @@ const targets = [
 
 for (const { src, dest, ext } of targets) {
   writeFileSync(
+    /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions --
+     * The value `answer.name` is guaranteed to be a string because the corresponding prompts'
+     * question is of type text.
+     */
     `${dest}/${answer.name}.${ext}`,
     await compile(readFileSync(src, { encoding: "utf-8" }))(answer),
     { encoding: "utf-8" }
