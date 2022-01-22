@@ -1,0 +1,5 @@
+.vscode
+dist
+# tempura's expect is not supported
+scripts/templates
+CHANGELOG.md

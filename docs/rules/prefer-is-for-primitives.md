@@ -10,7 +10,7 @@ It also clarifies what types of value is expected in the test.
 
 ## Examples
 
-Examples of __incorrect__ code for this rule:
+Examples of **incorrect** code for this rule:
 
 ```javascript
 import * as assert from "uvu/assert";
@@ -22,7 +22,7 @@ import { equal as uvuEqual } from "uvu/assert";
 uvuEqual(0, 0);
 ```
 
-Examples of __correct__ code for this rule:
+Examples of **correct** code for this rule:
 
 ```javascript
 import * as assert from "uvu/assert";

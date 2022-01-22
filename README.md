@@ -27,12 +27,14 @@ Enable the plugin in the `plugins` section, and configure rules according to you
 
 ## Rules
 
+<!-- prettier-ignore-start -->
 <!-- DO NOT MANUALLY EDIT THE TABLE BELOW -->
 <!-- rules table begins -->
 | Rule ID | Description | Recommended | Fixable |
 | ------- | ----------- | :---------: | :-----: |
 | [uvu/prefer-is-for-primitives](./docs/rules/prefer-is-for-primitives.md) | Prefer `is` to `equal` for assertions against primitive literals. |  |  |
 <!-- rules table ends -->
+<!-- prettier-ignore-end -->
 
 ## License
 
