@@ -1,6 +1,29 @@
 # eslint-plugin-uvu
 
+[![test](https://github.com/yudai-nkt/eslint-plugin-uvu/actions/workflows/test.yml/badge.svg)](https://github.com/yudai-nkt/eslint-plugin-uvu/actions/workflows/test.yml)
+[![version](https://img.shields.io/npm/v/eslint-plugin-uvu)](https://www.npmjs.com/package/eslint-plugin-uvu)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![license](https://img.shields.io/github/license/yudai-nkt/eslint-plugin-uvu)](https://github.com/yudai-nkt/eslint-plugin-uvu/blob/main/LICENSE.md)
+
 ESLint plugin for uvu.
+
+## Installation
+
+This package is available on the NPM registry.
+Install `eslint-plugin-uvu` using your favortite package manager.
+
+## Usage
+
+Enable the plugin in the `plugins` section, and configure rules according to your preference.
+
+```json
+{
+  "plugins": ["uvu"],
+  "rules": {
+    "uvu/prefer-is-for-primitives": "error"
+  }
+}
+```
 
 ## Rules
 
