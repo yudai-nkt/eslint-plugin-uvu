@@ -12,6 +12,7 @@
     "bump:dryrun": "standard-version --dry-run",
     "docgen:rules-table": "tsm scripts/update-rules-table.ts",
     "format": "prettier --check .",
+    "lint": "eslint src",
     "new-rule": "tsm scripts/new-rule.ts",
     "test": "tsm node_modules/uvu/bin.js src/__tests__/ '.test.ts$'",
     "prebuild": "node --eval 'fs.rmSync(\"dist\", { force: true, recursive: true })'",
