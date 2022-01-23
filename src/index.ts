@@ -20,11 +20,25 @@ const importDefault = <T>(moduleName: string): T =>
  */
 const rulesDir = join(__dirname, "rules");
 
-const rules = Object.fromEntries(
-  readdirSync(rulesDir).map<[string, TSESLint.RuleModule<string>]>((curr) => [
-    curr.replace(/\.js$/, ""),
-    importDefault(join(rulesDir, curr)),
-  ])
+const rules = readdirSync(rulesDir).map<[string, TSESLint.RuleModule<string>]>(
+  (curr) => [curr.replace(/\.js$/, ""), importDefault(join(rulesDir, curr))]
 );
 
-export = { rules };
+const createConfig = (
+  rules: [string, TSESLint.RuleModule<string>][],
+  filter: (rule: [string, TSESLint.RuleModule<string>]) => boolean
+) => ({
+  rules: Object.fromEntries(
+    rules.flatMap<[string, TSESLint.Linter.RuleLevel]>((rule) =>
+      filter(rule) ? [[`uvu/${rule[0]}`, "error"]] : []
+    )
+  ),
+});
+
+export = {
+  rules: Object.fromEntries(rules),
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars --
+   * The all config needs to enable all the rules.
+   */
+  configs: { all: createConfig(rules, (rule) => true) },
+};
