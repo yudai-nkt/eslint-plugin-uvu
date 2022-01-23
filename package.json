@@ -16,6 +16,7 @@
     "new-rule": "tsm scripts/new-rule.ts",
     "test": "tsm node_modules/uvu/bin.js src/__tests__/ '.test.ts$'",
     "prebuild": "node --eval 'fs.rmSync(\"dist\", { force: true, recursive: true })'",
+    "prepack": "npm run build",
     "prepare": "husky install",
     "postpublish": "git push --follow-tags origin main"
   },
