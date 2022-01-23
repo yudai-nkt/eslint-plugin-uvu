@@ -13,7 +13,8 @@ export default createRule({
       recommended: false,
     },
     messages: {
-      preferIsForPrimitives: "Prefer is to equal for primitive types",
+      preferIsForPrimitives:
+        "Assertion against a {{type}} should use `is` instead of `equal`",
     },
     type: "suggestion",
     schema: [],
@@ -37,7 +38,15 @@ export default createRule({
         : `CallExpression[arguments.1.type=Literal][callee.object.name=${uvuAssertEqual.namespace}][callee.property.name=equal]`;
       listner = {
         [selector]: (node: TSESTree.CallExpression) => {
-          context.report({ messageId: "preferIsForPrimitives", node });
+          context.report({
+            messageId: "preferIsForPrimitives",
+            node,
+            data: {
+              // This downcast is safe because the query `[arguments.1.type=Literal]` guarantees that
+              // `node.arguments[1]` corresponds to a literal.
+              type: typeof (node.arguments[1] as TSESTree.Literal).value,
+            },
+          });
         },
       };
     }
