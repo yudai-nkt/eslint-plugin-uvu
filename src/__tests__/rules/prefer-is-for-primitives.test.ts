@@ -17,7 +17,7 @@ const Test = suite("Test suite for `prefer-is-for-primitives`.");
 TSESLint.RuleTester.it = (text, callback) => {
   Test(text, callback);
 };
-// @ts-expect-error
+// @ts-expect-error: typing in @typescript-eslint/utils is missing
 TSESLint.RuleTester.itOnly = (text: string, callback: () => void) => {
   Test.only(text, callback);
 };
