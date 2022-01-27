@@ -8,9 +8,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "bump": "standard-version",
+    "bump": "standard-version --commit-all",
     "bump:dryrun": "standard-version --dry-run",
-    "docgen:rules-table": "tsm scripts/update-rules-table.ts",
     "format": "prettier --check .",
     "lint": "eslint src scripts",
     "new-rule": "tsm scripts/new-rule.ts",
