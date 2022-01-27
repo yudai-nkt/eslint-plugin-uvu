@@ -18,6 +18,10 @@ const Test = suite("Test suite for \`{{name}}\`.");
 TSESLint.RuleTester.it = (text, callback) => {
   Test(text, callback);
 };
+// @ts-expect-error
+TSESLint.RuleTester.itOnly = (text: string, callback: () => void) => {
+  Test.only(text, callback);
+};
 
 ruleTester.run("{{name}}", rule, {
   valid: [

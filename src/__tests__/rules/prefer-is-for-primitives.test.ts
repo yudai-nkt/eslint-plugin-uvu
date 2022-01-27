@@ -17,6 +17,10 @@ const Test = suite("Test suite for `prefer-is-for-primitives`.");
 TSESLint.RuleTester.it = (text, callback) => {
   Test(text, callback);
 };
+// @ts-expect-error
+TSESLint.RuleTester.itOnly = (text: string, callback: () => void) => {
+  Test.only(text, callback);
+};
 
 ruleTester.run("__filename", rule, {
   valid: [

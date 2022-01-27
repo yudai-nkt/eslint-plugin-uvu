@@ -17,6 +17,10 @@ const Test = suite("Test suite for `no-identical-titles`.");
 TSESLint.RuleTester.it = (text, callback) => {
   Test(text, callback);
 };
+// @ts-expect-error
+TSESLint.RuleTester.itOnly = (text: string, callback: () => void) => {
+  Test.only(text, callback);
+};
 
 ruleTester.run("no-identical-titles", rule, {
   valid: [
