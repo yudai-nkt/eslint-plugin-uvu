@@ -5,7 +5,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![license](https://img.shields.io/github/license/yudai-nkt/eslint-plugin-uvu)](https://github.com/yudai-nkt/eslint-plugin-uvu/blob/main/LICENSE.md)
 
-ESLint plugin for uvu.
+ESLint plugin for [uvu](https://www.npmjs.com/package/uvu).
 
 ## Installation
 
