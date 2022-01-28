@@ -73,14 +73,23 @@ const targets = [
   },
 ];
 
-for (const { src, dest, ext } of targets) {
-  writeFileSync(
-    /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions --
-     * The value `answer.name` is guaranteed to be a string because the corresponding prompts'
-     * question is of type text.
-     */
-    `${dest}/${answer.name}.${ext}`,
-    await compile(readFileSync(src, { encoding: "utf-8" }))(answer),
-    { encoding: "utf-8" }
-  );
+if (
+  ["name", "description", "type", "hasOption"].every((key) =>
+    // @ts-expect-error: typing is missing in built-in
+    // cf. https://github.com/microsoft/TypeScript/issues/44253
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    Object.hasOwn(key)
+  )
+) {
+  for (const { src, dest, ext } of targets) {
+    writeFileSync(
+      /* eslint-disable-next-line @typescript-eslint/restrict-template-expressions --
+       * The value `answer.name` is guaranteed to be a string because the corresponding prompts'
+       * question is of type text.
+       */
+      `${dest}/${answer.name}.${ext}`,
+      await compile(readFileSync(src, { encoding: "utf-8" }))(answer),
+      { encoding: "utf-8" }
+    );
+  }
 }
