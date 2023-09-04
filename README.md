@@ -37,6 +37,11 @@ Enable the plugin in the `plugins` section, and configure rules according to you
 <!-- rules table ends -->
 <!-- prettier-ignore-end -->
 
+## Contribution
+
+When you add a new lint rule, please run `npm run new-rule`.
+This will scaffold source, test, and documentation files.
+
 ## License
 
 This package is distributed under the MIT License.
