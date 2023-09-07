@@ -30,10 +30,11 @@ Enable the plugin in the `plugins` section, and configure rules according to you
 <!-- prettier-ignore-start -->
 <!-- DO NOT MANUALLY EDIT THE TABLE BELOW -->
 <!-- rules table begins -->
-| Rule ID | Description | Recommended | Fixable |
-| ------- | ----------- | :---------: | :-----: |
-| [uvu/no-identical-titles](./docs/rules/no-identical-titles.md) | Enforce each test case to have a unique title. |  |  |
+| Rule ID                                                                  | Description                                                       | Recommended | Fixable |
+|--------------------------------------------------------------------------|-------------------------------------------------------------------| :---------: | :-----: |
+| [uvu/no-identical-titles](./docs/rules/no-identical-titles.md)           | Enforce each test case to have a unique title.                    |  |  |
 | [uvu/prefer-is-for-primitives](./docs/rules/prefer-is-for-primitives.md) | Prefer `is` to `equal` for assertions against primitive literals. |  |  |
+| [uvu/no-test-only](./docs/rules/no-test-only.md)                         | Warn about forgotten `test.only()`.                               |  | | 
 <!-- rules table ends -->
 <!-- prettier-ignore-end -->
 
