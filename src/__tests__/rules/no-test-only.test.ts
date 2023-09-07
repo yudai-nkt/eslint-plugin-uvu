@@ -25,24 +25,14 @@ TSESLint.RuleTester.itOnly = (text: string, callback: () => void) => {
 ruleTester.run("no-test-only", rule, {
   valid: [
     dedent`
-      test('sum', () => {
-        tassert.type(math.sum, 'function');
-        tassert.is(math.sum(1, 2), 3);
-        tassert.is(math.sum(-1, -2), -3);
-        tassert.is(math.sum(-1, 1), 0);
-      });
+      test('foo', () => {});
       test.run();
     `,
   ],
   invalid: [
     {
       code: dedent`
-        test.only('sum', () => {
-          tassert.type(math.sum, 'function');
-          tassert.is(math.sum(1, 2), 3);
-          tassert.is(math.sum(-1, -2), -3);
-          tassert.is(math.sum(-1, 1), 0);
-        });
+        test.only('foo', () => {});
       `,
       errors: [{ messageId: "noTestOnly" }],
     },
