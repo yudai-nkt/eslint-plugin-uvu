@@ -11,23 +11,13 @@ It is popular mistake to forget `test.only()` from debug session.
 Examples of **incorrect** code for this rule:
 
 ```javascript
-test.only("sum", () => {
-  tassert.type(math.sum, "function");
-  tassert.is(math.sum(1, 2), 3);
-  tassert.is(math.sum(-1, -2), -3);
-  tassert.is(math.sum(-1, 1), 0);
-});
+test.only("foo", () => {});
 ```
 
 Examples of **correct** code for this rule:
 
 ```javascript
-test("sum", () => {
-  tassert.type(math.sum, "function");
-  tassert.is(math.sum(1, 2), 3);
-  tassert.is(math.sum(-1, -2), -3);
-  tassert.is(math.sum(-1, 1), 0);
-});
+test("foo", () => {});
 test.run();
 ```
 
