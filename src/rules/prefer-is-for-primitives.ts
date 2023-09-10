@@ -46,6 +46,7 @@ export default createRule({
               // `node.arguments[1]` corresponds to a literal.
               type: typeof (node.arguments[1] as TSESTree.Literal).value,
             },
+            fix: (fixer) => fixer.replaceText(node.callee.property, "is"),
           });
         },
       };
