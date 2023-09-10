@@ -34,6 +34,7 @@ Enable the plugin in the `plugins` section, and configure rules according to you
 | ------- | ----------- | :---------: | :-----: |
 | [uvu/no-identical-titles](./docs/rules/no-identical-titles.md) | Enforce each test case to have a unique title. |  |  |
 | [uvu/prefer-is-for-primitives](./docs/rules/prefer-is-for-primitives.md) | Prefer `is` to `equal` for assertions against primitive literals. |  |  |
+| [uvu/call-run](./docs/rules/call-run.md) | Enforce each test case to be added to uvu's queue. |  |  |
 <!-- rules table ends -->
 <!-- prettier-ignore-end -->
 
