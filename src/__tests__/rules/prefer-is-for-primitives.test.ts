@@ -49,6 +49,10 @@ ruleTester.run("__filename", rule, {
         assert.equal(0, 0);
       `,
       errors: [{ messageId: "preferIsForPrimitives" }],
+      output: dedent`
+        import * as assert from "uvu/assert";
+        assert.is(0, 0);
+      `,
     },
     {
       code: dedent`
@@ -56,6 +60,10 @@ ruleTester.run("__filename", rule, {
         equal(0, 0);
       `,
       errors: [{ messageId: "preferIsForPrimitives" }],
+      output: dedent`
+        import { is } from "uvu/assert";
+        is(0, 0);
+      `,
     },
     {
       code: dedent`
@@ -63,6 +71,10 @@ ruleTester.run("__filename", rule, {
         uvuEqual(0, 0);
       `,
       errors: [{ messageId: "preferIsForPrimitives" }],
+      output: dedent`
+        import { is as uvuIs } from "uvu/assert";
+        uvuIs(0, 0);
+      `,
     },
   ],
 });
